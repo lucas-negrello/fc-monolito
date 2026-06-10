@@ -6,14 +6,14 @@ describe('PaymentFacade test', () => {
     initSequelize([TransactionModel]);
 
     it('should create a transaction', async () => {
-        const paymentFactory = PaymentFacadeFactory.create();
+        const paymentFacade = PaymentFacadeFactory.create();
 
         const input = {
             orderId: "order-1",
             amount: 100,
         };
 
-        const result = await paymentFactory.processPaymentUseCase.execute(input);
+        const result = await paymentFacade.process(input);
 
         expect(result.transactionId).toBeDefined();
         expect(result.orderId).toBe(input.orderId);

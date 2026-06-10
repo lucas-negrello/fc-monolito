@@ -31,7 +31,7 @@ describe("InvoiceFacade test", () => {
             ]
         };
 
-        const result = await invoiceFacade.generateInvoice.execute(input);
+        const result = await invoiceFacade.generateInvoice(input);
 
         expect(result.id).toBeDefined();
         expect(result.name).toBe("Invoice 1");
@@ -88,7 +88,7 @@ describe("InvoiceFacade test", () => {
             id: "1"
         };
 
-        const result = await invoiceFacade.findInvoice.execute(input);
+        const result = await invoiceFacade.findInvoice(input);
 
         expect(result.id).toBe("1");
         expect(result.name).toBe("Invoice 1");
