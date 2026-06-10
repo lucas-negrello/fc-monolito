@@ -41,5 +41,5 @@ export class InvoiceModel extends Model {
     updatedAt: Date;
 
     @HasMany(() => InvoiceItemModel)
-    items: InvoiceItemModel[];
+    declare items: InvoiceItemModel[];
 }

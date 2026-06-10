@@ -1,26 +1,10 @@
-import {Sequelize} from "sequelize-typescript";
 import {InvoiceModel} from "../repository/invoice.model";
 import {InvoiceItemModel} from "../repository/invoice-item.model";
 import InvoiceFacadeFactory from "../factory/facade.factory";
+import initSequelize from "../../@shared/test/init.sequelize";
 
 describe("InvoiceFacade test", () => {
-    let sequelize: Sequelize;
-
-    beforeEach(async () => {
-        sequelize = new Sequelize({
-            dialect: "sqlite",
-            storage: ":memory:",
-            logging: false,
-            sync: {force: true},
-        });
-
-        sequelize.addModels([InvoiceModel, InvoiceItemModel]);
-        await sequelize.sync();
-    });
-
-    afterEach(async () => {
-        await sequelize.close();
-    });
+    initSequelize([InvoiceModel, InvoiceItemModel]);
 
     it('should generate a invoice', async () => {
         const invoiceFacade = InvoiceFacadeFactory.create();

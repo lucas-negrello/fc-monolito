@@ -1,5 +1,6 @@
 import {Column, ForeignKey, Model, PrimaryKey, Table, BelongsTo} from "sequelize-typescript";
 import {InvoiceModel} from "./invoice.model";
+import type {InvoiceModel as InvoiceModelType} from "./invoice.model";
 
 @Table({
     tableName: 'invoice_items',
@@ -21,5 +22,5 @@ export class InvoiceItemModel extends Model {
     price: number;
 
     @BelongsTo(() => InvoiceModel)
-    invoice: InvoiceModel;
+    declare invoice: InvoiceModelType;
 }

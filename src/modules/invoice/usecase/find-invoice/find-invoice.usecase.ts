@@ -1,7 +1,6 @@
 import UseCaseInterface from "../../../@shared/usecase/use-case.interface";
 import {FindInvoiceUseCaseInputDto, FindInvoiceUseCaseOutputDto} from "./find-invoice.dto";
 import InvoiceGateway from "../../gateway/invoice.gateway";
-import Invoice from "../../domain/invoice";
 
 export default class FindInvoiceUseCase implements UseCaseInterface {
     constructor(

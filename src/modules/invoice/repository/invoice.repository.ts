@@ -2,9 +2,9 @@ import Invoice from "../domain/invoice";
 import InvoiceGateway from "../gateway/invoice.gateway";
 import {InvoiceModel} from "./invoice.model";
 import {InvoiceItemModel} from "./invoice-item.model";
-import Address from "../../@shared/domain/value-object/address";
 import InvoiceItem from "../domain/invoice-item";
 import Id from "../../@shared/domain/value-object/id.value-object";
+import Address from "../../@shared/domain/value-object/address";
 
 export default class InvoiceRepository implements InvoiceGateway {
     async generate(input: Invoice): Promise<Invoice> {

@@ -1,8 +1,8 @@
-import Address from "../../../@shared/domain/value-object/address";
 import InvoiceItem from "../../domain/invoice-item";
 import Id from "../../../@shared/domain/value-object/id.value-object";
 import Invoice from "../../domain/invoice";
 import FindInvoiceUseCase from "./find-invoice.usecase";
+import Address from "../../../@shared/domain/value-object/address";
 
 const address = new Address(
     "Street",

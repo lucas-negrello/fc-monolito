@@ -1,11 +1,11 @@
-import {Sequelize} from "sequelize-typescript";
 import {InvoiceModel} from "./invoice.model";
 import {InvoiceItemModel} from "./invoice-item.model";
 import InvoiceRepository from "./invoice.repository";
-import Address from "../../@shared/domain/value-object/address";
 import InvoiceItem from "../domain/invoice-item";
 import Id from "../../@shared/domain/value-object/id.value-object";
 import Invoice from "../domain/invoice";
+import Address from "../../@shared/domain/value-object/address";
+import initSequelize from "../../@shared/test/init.sequelize";
 
 const address = new Address(
     "Street",
@@ -37,23 +37,7 @@ const invoice = new Invoice({
 });
 
 describe("InvoiceRepository test", () => {
-    let sequelize: Sequelize;
-
-    beforeEach(async () => {
-        sequelize = new Sequelize({
-            dialect: "sqlite",
-            storage: ":memory:",
-            logging: false,
-            sync: {force: true},
-        });
-
-        sequelize.addModels([InvoiceModel, InvoiceItemModel]);
-        await sequelize.sync();
-    });
-
-    afterEach(async () => {
-        await sequelize.close();
-    });
+    initSequelize([InvoiceModel, InvoiceItemModel]);
 
     it('should generate a invoice', async () => {
         const repository = new InvoiceRepository();

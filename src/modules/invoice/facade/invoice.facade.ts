@@ -2,15 +2,20 @@ import UseCaseInterface from "../../@shared/usecase/use-case.interface";
 import {FindInvoiceFacadeInputDto, FindInvoiceFacadeOutputDto, GenerateInvoiceFacadeInputDto, GenerateInvoiceFacadeOutputDto,
     InvoiceFacadeInterface
 } from "./invoice.facade.interface";
+import {
+    GenerateInvoiceUseCaseInputDto,
+    GenerateInvoiceUseCaseOutputDto
+} from "../usecase/generate-invoice/generate-invoice.dto";
+import {FindInvoiceUseCaseInputDto, FindInvoiceUseCaseOutputDto} from "../usecase/find-invoice/find-invoice.dto";
 
 export interface UseCasesProps {
-    generateInvoice: UseCaseInterface,
-    findInvoice: UseCaseInterface,
+    generateInvoice: UseCaseInterface<GenerateInvoiceUseCaseInputDto, GenerateInvoiceUseCaseOutputDto>,
+    findInvoice: UseCaseInterface<FindInvoiceUseCaseInputDto, FindInvoiceUseCaseOutputDto>,
 }
 
 export default class InvoiceFacade implements InvoiceFacadeInterface {
-    private readonly _generateInvoice: UseCaseInterface;
-    private readonly _findInvoice: UseCaseInterface;
+    private readonly _generateInvoice: UseCaseInterface<GenerateInvoiceUseCaseInputDto, GenerateInvoiceUseCaseOutputDto>;
+    private readonly _findInvoice: UseCaseInterface<FindInvoiceUseCaseInputDto, FindInvoiceUseCaseOutputDto>;
 
     constructor(useCasesProps: UseCasesProps) {
         this._generateInvoice = useCasesProps.generateInvoice;

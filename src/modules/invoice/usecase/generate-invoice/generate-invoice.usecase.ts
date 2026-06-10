@@ -1,10 +1,10 @@
 import UseCaseInterface from "../../../@shared/usecase/use-case.interface";
 import InvoiceGateway from "../../gateway/invoice.gateway";
 import {GenerateInvoiceUseCaseInputDto, GenerateInvoiceUseCaseOutputDto} from "./generate-invoice.dto";
-import Address from "../../../@shared/domain/value-object/address";
 import InvoiceItem from "../../domain/invoice-item";
 import Id from "../../../@shared/domain/value-object/id.value-object";
 import Invoice from "../../domain/invoice";
+import Address from "../../../@shared/domain/value-object/address";
 
 export default class GenerateInvoiceUseCase implements UseCaseInterface {
     constructor(
